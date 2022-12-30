@@ -1,15 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
 
 public class Enemy : MonoBehaviour
 {
     public float speed = 4f;
 
-    public Transform target;
-    public NavMeshAgent agent;
-    public Animator anim;
+    private Transform target;
+    private int wavepointIndex = 0;
+
+    void Start()
+    {
+        target = Waypoints.points[0];
+    }
 
     void Update()
     {
@@ -18,9 +21,24 @@ public class Enemy : MonoBehaviour
 
     void Move()
     {
-        agent.speed = speed;
-        agent.SetDestination(target.position);
-        anim.SetBool("Running", true);
+        Vector3 dir = target.position - transform.position;
+        transform.Translate(dir.normalized * speed * Time.deltaTime, Space.World);
+
+        if(Vector3.Distance(transform.position, target.position) <= 0.4f)
+        {
+            GetNextPoints();
+        }
+    }
+
+    void GetNextPoints()
+    {
+        if(wavepointIndex >= Waypoints.points.Length - 1)
+        {
+            Destroy(gameObject);
+        }
+
+        wavepointIndex++;
+        target = Waypoints.points[wavepointIndex];
     }
 
 }
