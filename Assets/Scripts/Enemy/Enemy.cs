@@ -5,9 +5,11 @@ using UnityEngine;
 public class Enemy : MonoBehaviour
 {
     public float speed = 4f;
+    public Transform rotEnemy;
 
     private Transform target;
     private int wavepointIndex = 0;
+    public Vector3 rotateEnemydir;
 
     void Start()
     {
@@ -26,6 +28,7 @@ public class Enemy : MonoBehaviour
 
         if(Vector3.Distance(transform.position, target.position) <= 0.4f)
         {
+            rotEnemy.transform.Rotate(rotateEnemydir.y * Vector3.up, Space.World);
             GetNextPoints();
         }
     }

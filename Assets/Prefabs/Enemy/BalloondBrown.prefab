@@ -215,6 +215,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 13
+  rotEnemy: {fileID: 8416061484311558416}
+  velRotate: 10
+  rotateEnemydir: {x: 0, y: 0, z: 0}
 --- !u!136 &627006434537731100
 CapsuleCollider:
   m_ObjectHideFlags: 0
