@@ -106,7 +106,7 @@ NavMeshSettings:
   m_BuildSettings:
     serializedVersion: 2
     agentTypeID: 0
-    agentRadius: 0.5
+    agentRadius: 0.6
     agentHeight: 2
     agentSlope: 45
     agentClimb: 0.4
@@ -114,7 +114,7 @@ NavMeshSettings:
     maxJumpAcrossDistance: 0
     minRegionArea: 2
     manualCellSize: 0
-    cellSize: 0.16666667
+    cellSize: 0.2
     manualTileSize: 0
     tileSize: 256
     accuratePlacement: 0
@@ -3369,8 +3369,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278194980
-  m_fontColor: {r: 0.14150941, g: 0.0744474, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3505,8 +3505,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278194980
-  m_fontColor: {r: 0.14150941, g: 0.0744474, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -6157,13 +6157,15 @@ MonoBehaviour:
   enemyPosition: {fileID: 1266628630}
   enemyPrefab:
   - {fileID: 2453626967170615752, guid: 627f62669196d4e818d7dae11013343a, type: 3}
+  - {fileID: 7449810382582046670, guid: ac13a4bd04ff34ea9864e63ea02c978c, type: 3}
   - {fileID: 7994881712020773099, guid: b0829107c127a4f358c7a614812290a1, type: 3}
   - {fileID: 7423768056747939779, guid: 4f39674c731db4c81806868f4ae308b3, type: 3}
   - {fileID: 5299772598832448452, guid: 1f7d8d95da3134c86af81b16e7454440, type: 3}
   - {fileID: 9033000668541090201, guid: f1fcaa6c2314444d092d452622d26f93, type: 3}
+  - {fileID: 2453626967170615752, guid: 627f62669196d4e818d7dae11013343a, type: 3}
   - {fileID: 5294656922782269498, guid: 31656c9b4c8bc40ec87fc4bb78cbb630, type: 3}
   - {fileID: 7449810382582046670, guid: ac13a4bd04ff34ea9864e63ea02c978c, type: 3}
-  - {fileID: 2453626967170615752, guid: 627f62669196d4e818d7dae11013343a, type: 3}
+  - {fileID: 6800548939147468146, guid: d0330355340504c83bf3d401a3073f76, type: 3}
   - {fileID: 5294656922782269498, guid: 31656c9b4c8bc40ec87fc4bb78cbb630, type: 3}
   timeBetweenWaves: 10
   waveCountdownTimer: {fileID: 1054029978}
@@ -6181,7 +6183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57e6af7a7a5ef4443a375ee5ca39d905, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  standartTurretPrefab: {fileID: 2722584254016089571, guid: af5658426ddf14e9bb7e74d9f76c2269, type: 3}
+  turretPrefab: {fileID: 2722584254016089571, guid: af5658426ddf14e9bb7e74d9f76c2269, type: 3}
 --- !u!1001 &867085297
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7267,6 +7269,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -7340,6 +7343,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 65, y: 0, z: 0}
+--- !u!114 &963194229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f14a467bbdc94afd8b0eaaaae9b9f71, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  panSpeed: 20
+  panBorderThickness: 10
+  scrollSpeed: 3
+  minY: 20
+  maxY: 60
 --- !u!1001 &964373323
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8303,8 +8323,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278194980
-  m_fontColor: {r: 0.14150941, g: 0.0744474, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -16677,8 +16697,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278194980
-  m_fontColor: {r: 0.14150941, g: 0.0744474, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
