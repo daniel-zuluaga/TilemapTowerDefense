@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9042776a06f1f42c295ba3d7b93de30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
+  speed: 2
   rotEnemy: {fileID: 5604931482258127788}
   rotateEnemydir: {x: 0, y: 90, z: 0}
 --- !u!1 &8625799783202892119
