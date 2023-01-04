@@ -83,7 +83,7 @@ public class Torret : MonoBehaviour
     void Shoot()
     {
         GameObject effectShootObj = Instantiate(effectShoot, firePoint.position, firePoint.rotation);
-        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGO = Instantiate(bulletPrefab, firePoint.position, transform.rotation);
         Bullet bullet = bulletGO.GetComponent<Bullet>();
         Destroy(effectShootObj, 1f);
 
