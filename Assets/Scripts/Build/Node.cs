@@ -7,6 +7,7 @@ public class Node : MonoBehaviour
 {
     public Color hoverColor;
     public Color notEnoughMoneyColor;
+    public Color notCanBuildTurret;
     public Vector3 positionOffset;
 
     [Header("Optional")]
@@ -34,16 +35,12 @@ public class Node : MonoBehaviour
             return;
 
         if (!buildManager.CanBuild)
-        {
             return;
-        }
-        if (turret != null)
-        {
-            Debug.Log("can't build there!!");
-            return;
-        }
-        buildManager.TurretBuildOn(this);
 
+        if (turret != null)
+            return;
+
+        buildManager.TurretBuildOn(this);
     }
 
     void OnMouseEnter()
@@ -53,6 +50,12 @@ public class Node : MonoBehaviour
 
         if (!buildManager.CanBuild)
             return;
+
+        if (turret != null)
+        {
+            rend.material.color = notCanBuildTurret;
+            return;
+        }
 
         if (buildManager.HasMoney)
         {

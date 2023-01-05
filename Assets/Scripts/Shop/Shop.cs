@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Shop : MonoBehaviour
 {
+    public static Shop instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public TurretBlueprint standartTurret;
     public TurretBlueprint missileLauncher;
 
