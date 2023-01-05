@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0731e3b3dba914257ba4daf9b4259a2c
+guid: f5c65aa85691342a49a23d7d15d4838f
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - Seymour One
+  - Happy brown cat
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

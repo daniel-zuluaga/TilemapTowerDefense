@@ -1,15 +1,15 @@
 fileFormatVersion: 2
-guid: c9d6a2b0285814db0b80887d092a90b9
+guid: 7bea8a63a2d15404ea72c538e9a19da2
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
-  fontSize: 16
+  fontSize: 20
   forceTextureCase: -2
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - East Sea Dokdo
+  - Celosia Nature
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

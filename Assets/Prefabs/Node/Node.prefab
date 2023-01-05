@@ -112,6 +112,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hoverColor: {r: 0.37201852, g: 0.37201852, b: 0.3773585, a: 1}
   notEnoughMoneyColor: {r: 0.8679245, g: 0.18422928, b: 0.18422928, a: 1}
+  notCanBuildTurret: {r: 0.754717, g: 0.004216275, b: 0, a: 1}
   positionOffset: {x: 0, y: 0.5, z: 0}
   turret: {fileID: 0}
   rend: {fileID: 6428285057747429942}
