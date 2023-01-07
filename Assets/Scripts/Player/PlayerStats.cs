@@ -9,18 +9,16 @@ public class PlayerStats : MonoBehaviour
     public int startMoney = 550;
     public TextMeshProUGUI textCostStandardTurret;
     public TextMeshProUGUI textCostMissileLauncher;
+ 
+    public static int lives;
+    public int startLives = 100;
 
     // Start is called before the first frame update
     void Start()
     {
         Money = startMoney;
+        lives = startLives;
         textCostStandardTurret.text = "$ " + Shop.instance.standartTurret.cost.ToString();
         textCostMissileLauncher.text = "$ " + Shop.instance.missileLauncher.cost.ToString();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
