@@ -297,10 +297,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9042776a06f1f42c295ba3d7b93de30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 5
   rotEnemy: {fileID: 8407752047532126493}
-  velRotate: 10
+  damagePlayer: 30
+  health: 28
+  moneyEnemy: 50
   rotateEnemydir: {x: 0, y: 0, z: 0}
+  effectsEnemyPrefab: {fileID: 1757083622091840908, guid: 350810000da08438a93e9b020b51778a, type: 3}
 --- !u!136 &636728984277285905
 CapsuleCollider:
   m_ObjectHideFlags: 0

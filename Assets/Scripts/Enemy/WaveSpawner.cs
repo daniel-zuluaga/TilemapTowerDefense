@@ -42,7 +42,10 @@ public class WaveSpawner : MonoBehaviour
         for (int i = 0; i < waveIndex; i++)
         {
             SpawnEnemy();
-            yield return new WaitForSeconds(0.5f);
+            float restartHealth = 2.25f;
+            Enemy.instance.health *= waveCount / restartHealth;
+            yield return new WaitForSeconds(0.2f);
+
         }
     }
 
