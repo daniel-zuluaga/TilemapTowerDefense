@@ -2,14 +2,25 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Torret : MonoBehaviour
+public class Turret : MonoBehaviour
 {
     public Transform target;
+    private Enemy targetEnemy;
 
-    [Header("Attributes")]
+    [Header("General")]
     public float range = 15f;
+
+    [Header("Use Bullet (default)")]
+    public GameObject bulletPrefab;
     public float fireRate = 1f;
     private float fireCountdown = 0f;
+
+    [Header("Use Laser")]
+    public bool useLaser = false;
+    public int damageOverTime = 10;
+    public LineRenderer lineRend;
+    public ParticleSystem impactEffect;
+    public Light impactLight;
 
     [Header("Unity Setup Fields")]  
     public string enemyTag = "Enemy";
@@ -18,7 +29,6 @@ public class Torret : MonoBehaviour
     public float turnSpeed;
 
     [Header("Shooting")]
-    public GameObject bulletPrefab;
     public Transform firePoint;
     public GameObject effectShoot;
 
@@ -46,6 +56,7 @@ public class Torret : MonoBehaviour
         if (nearestEnemy != null && shortestDistance <= range)
         {
             target = nearestEnemy.transform;
+            targetEnemy = nearestEnemy.GetComponent<Enemy>();
         }
         else
         {
@@ -57,18 +68,36 @@ public class Torret : MonoBehaviour
     void Update()
     {
         if (target == null)
+        {
+            if (useLaser)
+            {
+                if (lineRend.enabled)
+                {
+                    lineRend.enabled = false;
+                    impactEffect.Stop();
+                    impactLight.enabled = false;
+                }
+            }
             return;
+        }
 
         // Target look on
         LockOnTarget();
 
-        if (fireCountdown <= 0f)
+        if (useLaser)
         {
-            Shoot();
-            fireCountdown = 1f / fireRate;
+            LaserBeamer();
         }
+        else
+        {
+            if (fireCountdown <= 0f)
+            {
+                Shoot();
+                fireCountdown = 1f / fireRate;
+            }
 
-        fireCountdown -= Time.deltaTime;
+            fireCountdown -= Time.deltaTime; 
+        }
     }
 
     void LockOnTarget()
@@ -79,6 +108,25 @@ public class Torret : MonoBehaviour
         partToRotate.rotation = Quaternion.Euler(0f, rotation.y, 0f);
     }
 
+    void LaserBeamer()
+    {
+        targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+
+        if (!lineRend.enabled)
+        {
+            lineRend.enabled = true;
+            impactEffect.Play();
+            impactLight.enabled = true;
+        }
+
+        lineRend.SetPosition(0, firePoint.position);
+        lineRend.SetPosition(1, target.position);
+
+        Vector3 dir = firePoint.position - target.position;
+
+        impactEffect.transform.position = target.position + dir.normalized;
+        impactEffect.transform.rotation = Quaternion.LookRotation(dir);
+    }
 
     void Shoot()
     {
