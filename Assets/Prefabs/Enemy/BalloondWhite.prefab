@@ -177,6 +177,7 @@ GameObject:
   - component: {fileID: 6495390639791580442}
   - component: {fileID: 4136670445977709993}
   - component: {fileID: 2764096420227147798}
+  - component: {fileID: 9057643046664473662}
   m_Layer: 0
   m_Name: BalloondWhite
   m_TagString: Enemy
@@ -235,6 +236,18 @@ CapsuleCollider:
   m_Height: 2.4424818
   m_Direction: 1
   m_Center: {x: 0, y: 0.2136432, z: 0}
+--- !u!114 &9057643046664473662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5299772598832448452}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5de1f7ee7bf4e23b26038a032b741c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8115254567623285739
 GameObject:
   m_ObjectHideFlags: 0

@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3577504056268779286}
   - component: {fileID: 5974583981316532133}
   - component: {fileID: 5610799795537355290}
+  - component: {fileID: 4430491679164593091}
   m_Layer: 0
   m_Name: BalloondRed
   m_TagString: Enemy
@@ -152,6 +153,18 @@ CapsuleCollider:
   m_Height: 2.4424818
   m_Direction: 1
   m_Center: {x: 0, y: 0.2136432, z: 0}
+--- !u!114 &4430491679164593091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453626967170615752}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da5de1f7ee7bf4e23b26038a032b741c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6983135496030680221
 GameObject:
   m_ObjectHideFlags: 0
