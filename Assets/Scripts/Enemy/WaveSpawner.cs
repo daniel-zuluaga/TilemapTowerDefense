@@ -28,10 +28,11 @@ public class WaveSpawner : MonoBehaviour
 
         countDown -= Time.deltaTime;
 
-        countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
+        //countDown = Mathf.Clamp(countDown, 0f, Mathf.Infinity);
 
-        waveCountdownTimer.text = string.Format("{0:00.00}", countDown);
-            //Mathf.Round(countDown).ToString();
+        waveCountdownTimer.text = Mathf.Round(countDown).ToString();
+        //string.Format("{0:00.00}", countDown);
+
     }
 
     IEnumerator SpawnWave()
@@ -44,7 +45,7 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy();
             float restartHealth = 1.5f;
             Enemy.instance.health *= waveCount / restartHealth;
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(.6f);
 
         }
     }

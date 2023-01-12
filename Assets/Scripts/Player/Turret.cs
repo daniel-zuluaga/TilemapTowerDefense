@@ -18,6 +18,7 @@ public class Turret : MonoBehaviour
     [Header("Use Laser")]
     public bool useLaser = false;
     public int damageOverTime = 10;
+    public float slowAmount = .5f;
     public LineRenderer lineRend;
     public ParticleSystem impactEffect;
     public Light impactLight;
@@ -111,6 +112,7 @@ public class Turret : MonoBehaviour
     void LaserBeamer()
     {
         targetEnemy.TakeDamage(damageOverTime * Time.deltaTime);
+        targetEnemy.Slow(slowAmount);
 
         if (!lineRend.enabled)
         {

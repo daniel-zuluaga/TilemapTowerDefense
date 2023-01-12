@@ -6905,7 +6905,7 @@ MonoBehaviour:
   timeBetweenWaves: 20
   waveCountdownTimer: {fileID: 1054029978}
   waveCountdown: {fileID: 1932814246}
-  waveIndex: 5
+  waveIndex: 1
 --- !u!114 &861462372
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6934,7 +6934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8bed86cb3423246d8adcd8718a2b760a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startMoney: 500
+  startMoney: 600
   textCostStandardTurret: {fileID: 344165190}
   textCostMissileLauncher: {fileID: 1810585839}
   textCostLaserBeamer: {fileID: 717167136}

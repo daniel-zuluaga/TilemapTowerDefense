@@ -9980,6 +9980,7 @@ MonoBehaviour:
   fireRate: 1
   useLaser: 1
   damageOverTime: 20
+  slowAmount: 0.5
   lineRend: {fileID: 1580351901}
   impactEffect: {fileID: 4582470031123147278}
   impactLight: {fileID: 7734345751307367050}

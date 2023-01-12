@@ -298,11 +298,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9042776a06f1f42c295ba3d7b93de30f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startSpeed: 3
   speed: 3
   rotEnemy: {fileID: 9032908898502098485}
   damagePlayer: 5
-  health: 18
-  moneyEnemy: 30
+  health: 20
+  moneyEnemy: 14
   rotateEnemydir: {x: 0, y: 0, z: 0}
   effectsEnemyPrefab: {fileID: 1757083622091840908, guid: 350810000da08438a93e9b020b51778a, type: 3}
 --- !u!136 &81942870114923321
@@ -331,3 +332,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da5de1f7ee7bf4e23b26038a032b741c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemy: {fileID: 2168327420922934918}
