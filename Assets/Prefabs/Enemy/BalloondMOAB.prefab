@@ -447,6 +447,7 @@ MonoBehaviour:
   moneyEnemy: 100
   rotateEnemydir: {x: 0, y: 90, z: 0}
   effectsEnemyPrefab: {fileID: 1757083622091840908, guid: 350810000da08438a93e9b020b51778a, type: 3}
+  livesPlayer: {fileID: 1873685641471737907, guid: 19eb9d7d5b7fd414894e7bd8dd22b7a0, type: 3}
 --- !u!114 &67149895090083351
 MonoBehaviour:
   m_ObjectHideFlags: 0

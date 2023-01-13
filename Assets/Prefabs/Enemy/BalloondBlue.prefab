@@ -301,11 +301,12 @@ MonoBehaviour:
   startSpeed: 3
   speed: 3
   rotEnemy: {fileID: 9032908898502098485}
-  damagePlayer: 5
+  damagePlayer: 6
   health: 20
   moneyEnemy: 14
   rotateEnemydir: {x: 0, y: 0, z: 0}
   effectsEnemyPrefab: {fileID: 1757083622091840908, guid: 350810000da08438a93e9b020b51778a, type: 3}
+  livesPlayer: {fileID: 1873685641471737907, guid: 19eb9d7d5b7fd414894e7bd8dd22b7a0, type: 3}
 --- !u!136 &81942870114923321
 CapsuleCollider:
   m_ObjectHideFlags: 0

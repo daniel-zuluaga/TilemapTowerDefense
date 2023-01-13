@@ -15,7 +15,6 @@ public class WaveSpawner : MonoBehaviour
     public TextMeshProUGUI waveCountdown;
 
     public int waveIndex = 2;
-    private int waveCount;
 
     void Update()
     {
@@ -38,14 +37,14 @@ public class WaveSpawner : MonoBehaviour
     IEnumerator SpawnWave()
     {
         waveIndex++;
-        waveCount++;
-        waveCountdown.text = waveCount.ToString();
+        PlayerStats.RoundsPlayer++;
+        waveCountdown.text = PlayerStats.RoundsPlayer.ToString();
         for (int i = 0; i < waveIndex; i++)
         {
             SpawnEnemy();
-            float restartHealth = 1.5f;
-            Enemy.instance.health *= waveCount / restartHealth;
-            yield return new WaitForSeconds(.6f);
+            float restartHealth = 2f;
+            Enemy.instance.health *= PlayerStats.RoundsPlayer / restartHealth;
+            yield return new WaitForSeconds(0.6f);
 
         }
     }
