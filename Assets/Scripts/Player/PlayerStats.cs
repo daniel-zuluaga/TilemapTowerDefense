@@ -6,6 +6,7 @@ using TMPro;
 public class PlayerStats : MonoBehaviour
 {
     public static int Money;
+    public static int RoundsPlayer;
     public int startMoney = 550;
     public TextMeshProUGUI textCostStandardTurret;
     public TextMeshProUGUI textCostMissileLauncher;
