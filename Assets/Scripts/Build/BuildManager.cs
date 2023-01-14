@@ -19,6 +19,7 @@ public class BuildManager : MonoBehaviour
     public GameObject buildEffect;
 
     public TurretBlueprint turretToBuild;
+    private Node selectedNode;
 
     public bool CanBuild
     {
@@ -39,7 +40,7 @@ public class BuildManager : MonoBehaviour
     public void TurretBuildOn(Node node)
     {
         if(PlayerStats.Money < turretToBuild.cost)
-            return;
+           return;
 
         PlayerStats.Money -= turretToBuild.cost;
 
@@ -49,8 +50,15 @@ public class BuildManager : MonoBehaviour
         node.turret = turretPrefab;
     }
 
+    public void SelectNode(Node node)
+    {
+        selectedNode = node;
+        turretToBuild = null;
+    }
+
     public void SelectTurretToBuild(TurretBlueprint turret)
     {
         turretToBuild = turret;
+        selectedNode = null;
     }
 }
