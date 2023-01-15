@@ -17,11 +17,12 @@ public class Node : MonoBehaviour
     public Renderer rend;
     public Color defaultColor;
 
-    BuildManager buildManager;
+    public BuildManager buildManager;
 
     void Start()
     {
         buildManager = BuildManager.instance;
+        buildManager.nodeUI.gameObjectShop.SetActive(true);
     }
 
     public Vector3 GetBuildPosition()
@@ -57,6 +58,7 @@ public class Node : MonoBehaviour
         if (turret != null)
         {
             rend.material.color = notCanBuildTurret;
+            buildManager.SelectNode(this);
             return;
         }
 

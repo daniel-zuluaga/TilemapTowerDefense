@@ -8,7 +8,7 @@ public class Turret : MonoBehaviour
     private Enemy targetEnemy;
 
     [Header("General")]
-    public float range = 15f;
+    public float range;
 
     [Header("Use Bullet (default)")]
     public GameObject bulletPrefab;
@@ -17,8 +17,8 @@ public class Turret : MonoBehaviour
 
     [Header("Use Laser")]
     public bool useLaser = false;
-    public int damageOverTime = 10;
-    public float slowAmount = .5f;
+    public int damageOverTime;
+    public float slowAmount;
     public LineRenderer lineRend;
     public ParticleSystem impactEffect;
     public Light impactLight;
