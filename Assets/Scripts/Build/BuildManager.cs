@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class BuildManager : MonoBehaviour
 {
@@ -20,6 +21,9 @@ public class BuildManager : MonoBehaviour
 
     public TurretBlueprint turretToBuild;
     private Node selectedNode;
+    public TextMeshProUGUI textNameTurretInfo;
+
+    public NodeUI nodeUI;
 
     public bool CanBuild
     {
@@ -52,8 +56,13 @@ public class BuildManager : MonoBehaviour
 
     public void SelectNode(Node node)
     {
+        textNameTurretInfo.text = node.buildManager.turretToBuild.textNameTurret;
         selectedNode = node;
         turretToBuild = null;
+
+        nodeUI.SetTarget(node);
+        nodeUI.canvasInfoUpgrade.SetActive(true);
+        nodeUI.gameObjectShop.SetActive(false);
     }
 
     public void SelectTurretToBuild(TurretBlueprint turret)

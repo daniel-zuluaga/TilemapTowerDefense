@@ -9939,7 +9939,7 @@ GameObject:
   - component: {fileID: 1580351901}
   m_Layer: 0
   m_Name: Laser Beamer
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -9975,7 +9975,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 0}
-  range: 18
+  range: 12
   bulletPrefab: {fileID: 0}
   fireRate: 1
   useLaser: 1

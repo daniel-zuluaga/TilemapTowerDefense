@@ -96,7 +96,7 @@ GameObject:
   - component: {fileID: 516234070960843283}
   m_Layer: 0
   m_Name: Missile Launcher
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -132,11 +132,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 0}
   range: 15
+  bulletPrefab: {fileID: 6732066762077508715, guid: f6d282ae7e7104bcdba1f3c502328bdc, type: 3}
   fireRate: 0.3
+  useLaser: 0
+  damageOverTime: 0
+  slowAmount: 0
+  lineRend: {fileID: 0}
+  impactEffect: {fileID: 0}
+  impactLight: {fileID: 0}
   enemyTag: Enemy
   partToRotate: {fileID: 858887867274025809}
   turnSpeed: 12
-  bulletPrefab: {fileID: 6732066762077508715, guid: f6d282ae7e7104bcdba1f3c502328bdc, type: 3}
   firePoint: {fileID: 858887867159761639}
   effectShoot: {fileID: 1000010254994808, guid: c5a9f4bd7847f4c36891501f9d90833b, type: 3}
 --- !u!1 &858887867159761638

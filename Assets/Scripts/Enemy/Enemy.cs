@@ -31,7 +31,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
-        health -= amount * Time.deltaTime;
+        health -= amount;
 
         if(health <= 0)
         {

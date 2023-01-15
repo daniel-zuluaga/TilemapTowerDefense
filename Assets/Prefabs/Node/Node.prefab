@@ -117,3 +117,5 @@ MonoBehaviour:
   turret: {fileID: 0}
   rend: {fileID: 6428285057747429942}
   defaultColor: {r: 0.6509804, g: 1, b: 0, a: 1}
+  buildManager: {fileID: 0}
+  rangeArea: {fileID: 6520783560923448851, guid: c86fb4b2607664b0fbb13e835968158f, type: 3}
