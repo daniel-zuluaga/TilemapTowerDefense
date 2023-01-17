@@ -22,6 +22,7 @@ public class BuildManager : MonoBehaviour
     public TurretBlueprint turretToBuild;
     private Node selectedNode;
     public TextMeshProUGUI textNameTurretInfo;
+    public RangeArea rangeArea;
 
     public NodeUI nodeUI;
 
@@ -52,13 +53,16 @@ public class BuildManager : MonoBehaviour
         Destroy(buildEffectObj, 1f);
         GameObject turretPrefab = Instantiate(turretToBuild.turretPrefab, node.GetBuildPosition(), Quaternion.identity);
         node.turret = turretPrefab;
+        node.selectTurret = turretToBuild;
     }
 
     public void SelectNode(Node node)
     {
-        textNameTurretInfo.text = node.buildManager.turretToBuild.textNameTurret;
+        textNameTurretInfo.text = node.selectTurret.textNameTurret;
         selectedNode = node;
         turretToBuild = null;
+        node.rend.material.color = node.hoverColor;
+        rangeArea.ActiveAreaRange(node);
 
         nodeUI.SetTarget(node);
         nodeUI.canvasInfoUpgrade.SetActive(true);

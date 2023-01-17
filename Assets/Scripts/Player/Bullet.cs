@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
+    public static Bullet instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     private Transform target;
     public GameObject ImpactEffects;
     public int damageEnemy;

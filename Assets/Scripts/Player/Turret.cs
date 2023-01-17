@@ -4,6 +4,13 @@ using UnityEngine;
 
 public class Turret : MonoBehaviour
 {
+    public static Turret instance;
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public Transform target;
     private Enemy targetEnemy;
 

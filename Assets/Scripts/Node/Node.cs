@@ -12,6 +12,7 @@ public class Node : MonoBehaviour
 
     [Header("Optional")]
     public GameObject turret;
+    public TurretBlueprint selectTurret;
 
     [HideInInspector]
     public Renderer rend;
@@ -58,7 +59,6 @@ public class Node : MonoBehaviour
         if (turret != null)
         {
             rend.material.color = notCanBuildTurret;
-            buildManager.SelectNode(this);
             return;
         }
 
