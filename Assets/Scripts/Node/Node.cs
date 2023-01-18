@@ -19,6 +19,7 @@ public class Node : MonoBehaviour
     public Color defaultColor;
 
     public BuildManager buildManager;
+    public RangeArea range;
 
     void Start()
     {
@@ -32,7 +33,7 @@ public class Node : MonoBehaviour
     }
 
     void OnMouseDown()
-    {
+    { 
         if (EventSystem.current.IsPointerOverGameObject())
             return;
 

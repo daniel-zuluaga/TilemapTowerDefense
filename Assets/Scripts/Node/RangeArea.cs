@@ -4,26 +4,26 @@ using UnityEngine;
 
 public class RangeArea : MonoBehaviour
 {
-    public GameObject rangeArea;
+    public GameObject rangeAreaObj;
 
     private void Start()
     {
-        rangeArea.SetActive(false);
+        rangeAreaObj.SetActive(false);
     }
 
     public void ActiveAreaRange(Node _target)
     {
-        rangeArea.SetActive(true);
-        rangeArea.transform.position = new Vector3(
+        rangeAreaObj.SetActive(true);
+        rangeAreaObj.transform.position = new Vector3(
             _target.transform.position.x,
             _target.transform.position.y + 0.5f,
             _target.transform.position.z
             );
-        rangeArea.transform.localScale =
+        rangeAreaObj.transform.localScale =
             new Vector3(
-                Turret.instance.range * 2,
-                transform.localScale.y,
-                Turret.instance.range * 2
+                _target.turret.GetComponent<Turret>().range * 2,
+                0.01f,
+                _target.turret.GetComponent<Turret>().range * 2
                );
     }
 }
