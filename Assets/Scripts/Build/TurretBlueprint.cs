@@ -9,4 +9,7 @@ public class TurretBlueprint
     public GameObject turretPrefab;
     public int cost;
     public string textNameTurret;
+    public int upgradeRange;
+    public int upgradeDamage;
+    public int sellTurret;
 }

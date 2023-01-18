@@ -18,13 +18,26 @@ public class BuildManager : MonoBehaviour
     }
 
     public GameObject buildEffect;
-
+    public TurretBlueprint defaultTurret;
     public TurretBlueprint turretToBuild;
     private Node selectedNode;
     public TextMeshProUGUI textNameTurretInfo;
-    public RangeArea rangeArea;
+    public RangeArea range;
 
     public NodeUI nodeUI;
+
+    private void Start()
+    {
+        turretToBuild = defaultTurret;
+    }
+
+    void Update()
+    {
+        if(turretToBuild == null)
+        {
+            turretToBuild = defaultTurret;
+        }
+    }
 
     public bool CanBuild
     {
@@ -46,9 +59,7 @@ public class BuildManager : MonoBehaviour
     {
         if(PlayerStats.Money < turretToBuild.cost)
            return;
-
         PlayerStats.Money -= turretToBuild.cost;
-
         GameObject buildEffectObj = Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
         Destroy(buildEffectObj, 1f);
         GameObject turretPrefab = Instantiate(turretToBuild.turretPrefab, node.GetBuildPosition(), Quaternion.identity);
@@ -62,7 +73,8 @@ public class BuildManager : MonoBehaviour
         selectedNode = node;
         turretToBuild = null;
         node.rend.material.color = node.hoverColor;
-        rangeArea.ActiveAreaRange(node);
+        node.buildManager.GetComponent<RangeArea>().ActiveAreaRange(node);
+        nodeUI.ChangeValueUpgrade(node);
 
         nodeUI.SetTarget(node);
         nodeUI.canvasInfoUpgrade.SetActive(true);

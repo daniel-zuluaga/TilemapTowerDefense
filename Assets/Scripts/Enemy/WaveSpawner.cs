@@ -44,7 +44,7 @@ public class WaveSpawner : MonoBehaviour
             SpawnEnemy();
             float restartHealth = 3f;
             Enemy.instance.health *= PlayerStats.RoundsPlayer / restartHealth;
-            yield return new WaitForSeconds(0.6f);
+            yield return new WaitForSeconds(1f);
         }
     }
 

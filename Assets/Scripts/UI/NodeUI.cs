@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class NodeUI : MonoBehaviour
 {
@@ -11,16 +12,29 @@ public class NodeUI : MonoBehaviour
         instance = this;
     }
 
-    private Node target;
+    public Node target;
 
     public GameObject canvasInfoUpgrade;
     public GameObject gameObjectShop;
+    public TextMeshProUGUI textUpgradeRange;
+    public TextMeshProUGUI textUpgradeDamage;
+    public TextMeshProUGUI textsSellTurretValue;
+
+
     public RangeArea range;
 
-    private void Start()
+    void Start()
     {
         canvasInfoUpgrade.SetActive(false);
         gameObjectShop.SetActive(true);
+    }
+
+    public void ChangeValueUpgrade(Node _target)
+    {
+        int sellTurretPrefab = _target.selectTurret.sellTurret / 2;
+        textUpgradeRange.text = "Upgrade\n" + _target.selectTurret.upgradeRange.ToString();
+        textUpgradeDamage.text = "Upgrade\n" + _target.selectTurret.upgradeDamage.ToString();
+        textsSellTurretValue.text = "Sell\n" + sellTurretPrefab.ToString();
     }
 
     public void SetTarget(Node _target)
@@ -30,30 +44,54 @@ public class NodeUI : MonoBehaviour
 
     public void DisableInfoUpgrade()
     {
-        range.rangeArea.SetActive(false);
+        range.rangeAreaObj.SetActive(false);
         canvasInfoUpgrade.SetActive(false);
         gameObjectShop.SetActive(true);
     }
 
     public void UpgradeRangeTurret()
     {
-        Turret.instance.range += 2;
-        range.rangeArea.transform.localScale = new Vector3(
-            Turret.instance.range * 2,
-            range.rangeArea.transform.localScale.y,
-            Turret.instance.range * 2
+        int upgradeRangeCost = target.selectTurret.upgradeRange;
+        if (PlayerStats.Money < upgradeRangeCost)
+            return;
+        PlayerStats.Money -= upgradeRangeCost;
+        Turret.instance.range += 3;
+        GameObject buildEffectUpdate = Instantiate(target.buildManager.buildEffect, target.transform.position, target.transform.rotation);
+        range.rangeAreaObj.transform.localScale = new Vector3(
+            target.turret.GetComponent<Turret>().range * 2,
+            range.rangeAreaObj.transform.localScale.y,
+            target.turret.GetComponent<Turret>().range * 2
            );
+        Destroy(buildEffectUpdate, 0.8f);
     }
 
     public void UpgradeDamageTurret()
     {
-        if(Turret.instance.useLaser == true)
+        int upgradeDamageCost = target.selectTurret.upgradeDamage;
+        if (PlayerStats.Money < upgradeDamageCost)
+            return;
+        if (Turret.instance.useLaser == true)
         {
-            Turret.instance.damageOverTime += 5;
+            PlayerStats.Money -= upgradeDamageCost;
+            Turret.instance.damageOverTime += 8;
         }
         else
         {
-            Turret.instance.bulletPrefab.GetComponent<Bullet>().damageEnemy += 5;
+            PlayerStats.Money -= upgradeDamageCost;
+            Turret.instance.bulletPrefab.GetComponent<Bullet>().damageEnemy += 6;
         }
+        GameObject buildEffectUpdate = Instantiate(target.buildManager.buildEffect, target.transform.position, target.transform.rotation);
+        Destroy(buildEffectUpdate, 0.8f);
+    }
+
+    public void sellTurret()
+    {
+        int sellTurretPrefab = target.selectTurret.sellTurret / 2;
+
+        PlayerStats.Money += sellTurretPrefab;
+
+        target.selectTurret = null;
+        Destroy(target.turret);
+        DisableInfoUpgrade();
     }
 }

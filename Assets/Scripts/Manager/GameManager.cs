@@ -2,14 +2,20 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
     public static bool GameIsOver;
     //private string sceneGameOver = "GameOver";
     public GameObject gameOverUI;
+    public GameObject imageHeart;
+    public GameObject textLives;
+    public GameObject CanvasShop;
 
     public WaveSpawner waveSpawner;
+    public NodeUI nodeUI;
 
     private void Start()
     {
@@ -31,6 +37,10 @@ public class GameManager : MonoBehaviour
 
     void EndGame()
     {
+        nodeUI.DisableInfoUpgrade();
+        imageHeart.SetActive(false);
+        textLives.SetActive(false);
+        CanvasShop.SetActive(false);
         Time.timeScale = 0f;
         GameIsOver = true;
         gameOverUI.SetActive(true);
