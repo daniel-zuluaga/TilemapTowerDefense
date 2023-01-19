@@ -34,7 +34,7 @@ public class BuildManager : MonoBehaviour
 
     void Update()
     {
-        if(turretToBuild == null)
+        if (turretToBuild == null)
         {
             turretToBuild = defaultTurret;
         }
@@ -56,18 +56,6 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    public void TurretBuildOn(Node node)
-    {
-        if(PlayerStats.Money < turretToBuild.cost)
-           return;
-        PlayerStats.Money -= turretToBuild.cost;
-        GameObject buildEffectObj = Instantiate(buildEffect, node.GetBuildPosition(), Quaternion.identity);
-        Destroy(buildEffectObj, 1f);
-        GameObject turretPrefab = Instantiate(turretToBuild.turretPrefab, node.GetBuildPosition(), Quaternion.identity);
-        node.turret = turretPrefab;
-        node.selectTurret = turretToBuild;
-    }
-
     public void SelectNode(Node node)
     {
         textNameTurretInfo.text = node.selectTurret.textNameTurret;
@@ -87,5 +75,10 @@ public class BuildManager : MonoBehaviour
     {
         turretToBuild = turret;
         selectedNode = null;
+    }
+
+    public TurretBlueprint GetTurretBlueprint()
+    {
+        return turretToBuild;
     }
 }

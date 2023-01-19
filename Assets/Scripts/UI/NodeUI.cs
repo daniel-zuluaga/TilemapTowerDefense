@@ -51,37 +51,17 @@ public class NodeUI : MonoBehaviour
 
     public void UpgradeRangeTurret()
     {
-        int upgradeRangeCost = target.selectTurret.upgradeRange;
-        if (PlayerStats.Money < upgradeRangeCost)
-            return;
-        PlayerStats.Money -= upgradeRangeCost;
-        Turret.instance.range += 3;
-        GameObject buildEffectUpdate = Instantiate(target.buildManager.buildEffect, target.transform.position, target.transform.rotation);
+        target.UpgradeTurretRange();
         range.rangeAreaObj.transform.localScale = new Vector3(
             target.selectTurret.turretPrefab.GetComponent<Turret>().range * 2,
             range.rangeAreaObj.transform.localScale.y,
             target.selectTurret.turretPrefab.GetComponent<Turret>().range * 2
            );
-        Destroy(buildEffectUpdate, 0.8f);
     }
 
     public void UpgradeDamageTurret()
     {
-        int upgradeDamageCost = target.selectTurret.upgradeDamage;
-        if (PlayerStats.Money < upgradeDamageCost)
-            return;
-        if (Turret.instance.useLaser == true)
-        {
-            PlayerStats.Money -= upgradeDamageCost;
-            Turret.instance.damageOverTime += 8;
-        }
-        else
-        {
-            PlayerStats.Money -= upgradeDamageCost;
-            Turret.instance.bulletPrefab.GetComponent<Bullet>().damageEnemy += 6;
-        }
-        GameObject buildEffectUpdate = Instantiate(target.buildManager.buildEffect, target.transform.position, target.transform.rotation);
-        Destroy(buildEffectUpdate, 0.8f);
+        target.UpgradeTurretDamage();
     }
 
     public void sellTurret()
