@@ -13,6 +13,7 @@ public class Node : MonoBehaviour
     [Header("Optional")]
     public GameObject turret;
     public TurretBlueprint selectTurret;
+    public bool isUpgraded = false;
 
     [HideInInspector]
     public Renderer rend;
@@ -43,9 +44,49 @@ public class Node : MonoBehaviour
         }
 
         if (!buildManager.CanBuild)
+        {
             return;
+        }
 
-        buildManager.TurretBuildOn(this);
+        BuildTurret(buildManager.GetTurretBlueprint());
+    }
+
+    void BuildTurret(TurretBlueprint turretBlueprint)
+    {
+        if (PlayerStats.Money < turretBlueprint.cost)
+            return;
+        PlayerStats.Money -= turretBlueprint.cost;
+        GameObject buildEffectObj = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(buildEffectObj, 1f);
+        GameObject turretPrefab = Instantiate(turretBlueprint.turretPrefab, GetBuildPosition(), Quaternion.identity);
+        turret = turretPrefab;
+        selectTurret = turretBlueprint;
+    }
+
+    public void UpgradeTurretRange()
+    {
+        if (PlayerStats.Money < selectTurret.upgradeRange)
+            return;
+        PlayerStats.Money -= selectTurret.upgradeRange;
+        GameObject buildEffectObj = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(buildEffectObj, 1f);
+        Destroy(turret);
+        GameObject turretPrefab = Instantiate(selectTurret.turretPrefabRange, GetBuildPosition(), Quaternion.identity);
+        turret = turretPrefab;
+        isUpgraded = true;
+    }
+
+    public void UpgradeTurretDamage()
+    {
+        if (PlayerStats.Money < selectTurret.upgradeDamage)
+            return;
+        PlayerStats.Money -= selectTurret.upgradeDamage;
+        GameObject buildEffectObj = Instantiate(buildManager.buildEffect, GetBuildPosition(), Quaternion.identity);
+        Destroy(buildEffectObj, 1f);
+        Destroy(turret);
+        GameObject turretPrefab = Instantiate(selectTurret.turretPrefabDamage, GetBuildPosition(), Quaternion.identity);
+        turret = turretPrefab;
+        isUpgraded = true;
     }
 
     void OnMouseEnter()

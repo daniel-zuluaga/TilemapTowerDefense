@@ -7,6 +7,8 @@ using TMPro;
 public class TurretBlueprint
 {
     public GameObject turretPrefab;
+    public GameObject turretPrefabRange;
+    public GameObject turretPrefabDamage;
     public int cost;
     public string textNameTurret;
     public int upgradeRange;
