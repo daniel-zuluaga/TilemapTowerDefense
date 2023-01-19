@@ -12,4 +12,5 @@ public class TurretBlueprint
     public int upgradeRange;
     public int upgradeDamage;
     public int sellTurret;
+    public string descriptionUpgradeDamage;
 }

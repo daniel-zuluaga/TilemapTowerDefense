@@ -20,8 +20,9 @@ public class BuildManager : MonoBehaviour
     public GameObject buildEffect;
     public TurretBlueprint defaultTurret;
     public TurretBlueprint turretToBuild;
-    private Node selectedNode;
+    public Node selectedNode;
     public TextMeshProUGUI textNameTurretInfo;
+    public TextMeshProUGUI textDescriptionUpgradeDamage;
     public RangeArea range;
 
     public NodeUI nodeUI;
@@ -70,6 +71,7 @@ public class BuildManager : MonoBehaviour
     public void SelectNode(Node node)
     {
         textNameTurretInfo.text = node.selectTurret.textNameTurret;
+        textDescriptionUpgradeDamage.text = node.selectTurret.descriptionUpgradeDamage;
         selectedNode = node;
         turretToBuild = null;
         node.rend.material.color = node.hoverColor;
