@@ -31,7 +31,7 @@ public class NodeUI : MonoBehaviour
 
     public void ChangeValueUpgrade(Node _target)
     {
-        int sellTurretPrefab = _target.selectTurret.sellTurret / 2;
+        int sellTurretPrefab = _target.selectTurret.sellTurret;
         textUpgradeRange.text = "Upgrade\n" + _target.selectTurret.upgradeRange.ToString();
         textUpgradeDamage.text = "Upgrade\n" + _target.selectTurret.upgradeDamage.ToString();
         textsSellTurretValue.text = "Sell\n" + sellTurretPrefab.ToString();
@@ -58,9 +58,9 @@ public class NodeUI : MonoBehaviour
         Turret.instance.range += 3;
         GameObject buildEffectUpdate = Instantiate(target.buildManager.buildEffect, target.transform.position, target.transform.rotation);
         range.rangeAreaObj.transform.localScale = new Vector3(
-            target.turret.GetComponent<Turret>().range * 2,
+            target.selectTurret.turretPrefab.GetComponent<Turret>().range * 2,
             range.rangeAreaObj.transform.localScale.y,
-            target.turret.GetComponent<Turret>().range * 2
+            target.selectTurret.turretPrefab.GetComponent<Turret>().range * 2
            );
         Destroy(buildEffectUpdate, 0.8f);
     }
@@ -86,7 +86,7 @@ public class NodeUI : MonoBehaviour
 
     public void sellTurret()
     {
-        int sellTurretPrefab = target.selectTurret.sellTurret / 2;
+        int sellTurretPrefab = target.selectTurret.sellTurret;
 
         PlayerStats.Money += sellTurretPrefab;
 

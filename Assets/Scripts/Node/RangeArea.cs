@@ -21,9 +21,9 @@ public class RangeArea : MonoBehaviour
             );
         rangeAreaObj.transform.localScale =
             new Vector3(
-                _target.turret.GetComponent<Turret>().range * 2,
+                _target.selectTurret.turretPrefab.GetComponent<Turret>().range * 2,
                 0.01f,
-                _target.turret.GetComponent<Turret>().range * 2
+                _target.selectTurret.turretPrefab.GetComponent<Turret>().range * 2
                );
     }
 }

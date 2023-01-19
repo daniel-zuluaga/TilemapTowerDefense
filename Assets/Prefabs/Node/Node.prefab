@@ -115,7 +115,14 @@ MonoBehaviour:
   notCanBuildTurret: {r: 0.754717, g: 0.004216275, b: 0, a: 1}
   positionOffset: {x: 0, y: 0.5, z: 0}
   turret: {fileID: 0}
+  selectTurret:
+    turretPrefab: {fileID: 0}
+    cost: 0
+    textNameTurret: 
+    upgradeRange: 0
+    upgradeDamage: 0
+    sellTurret: 0
   rend: {fileID: 6428285057747429942}
   defaultColor: {r: 0.6509804, g: 1, b: 0, a: 1}
   buildManager: {fileID: 0}
-  rangeArea: {fileID: 6520783560923448851, guid: c86fb4b2607664b0fbb13e835968158f, type: 3}
+  range: {fileID: 1687518043636780725, guid: 992e606a66bcd4cab9919fa2da169d5c, type: 3}
