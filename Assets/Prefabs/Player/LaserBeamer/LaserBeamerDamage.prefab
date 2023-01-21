@@ -9986,7 +9986,7 @@ MonoBehaviour:
   impactLight: {fileID: 7734345751307367050}
   enemyTag: Enemy
   partToRotate: {fileID: 7217880666703221161}
-  turnSpeed: 10
+  turnSpeed: 11
   firePoint: {fileID: 7217880666398912868}
   effectShoot: {fileID: 4582470031659661891, guid: 201c23d1bc8f0435cb894ab5f0e262b8, type: 3}
 --- !u!120 &1580351901
