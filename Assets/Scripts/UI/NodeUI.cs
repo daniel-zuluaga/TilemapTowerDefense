@@ -12,7 +12,6 @@ public class NodeUI : MonoBehaviour
         instance = this;
     }
 
-    public Node target;
 
     public GameObject canvasInfoUpgrade;
     public GameObject gameObjectShop;
@@ -20,8 +19,9 @@ public class NodeUI : MonoBehaviour
     public TextMeshProUGUI textUpgradeDamage;
     public TextMeshProUGUI textsSellTurretValue;
 
-
+    public Node target;
     public RangeArea range;
+    public DisableButtonUI disableButtonUI;
 
     void Start()
     {
@@ -51,16 +51,32 @@ public class NodeUI : MonoBehaviour
 
     public void UpgradeRangeTurret()
     {
+        if (!target.isUpgraded)
+        {
+            disableButtonUI.ActiveButtonUpgradeGeneral();
+        }
+        else
+        {
+            disableButtonUI.ActiveAllButtonUpgraded();
+        }
         target.UpgradeTurretRange();
         range.rangeAreaObj.transform.localScale = new Vector3(
-            target.selectTurret.turretPrefab.GetComponent<Turret>().range * 2,
+            target.turret.GetComponent<Turret>().range * 2,
             range.rangeAreaObj.transform.localScale.y,
-            target.selectTurret.turretPrefab.GetComponent<Turret>().range * 2
+            target.turret.GetComponent<Turret>().range * 2
            );
     }
 
     public void UpgradeDamageTurret()
     {
+        if (!target.isUpgraded)
+        {
+            disableButtonUI.ActiveButtonUpgradeGeneral();
+        }
+        else
+        {
+            disableButtonUI.ActiveAllButtonUpgraded();
+        }
         target.UpgradeTurretDamage();
     }
 
